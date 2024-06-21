@@ -55,3 +55,34 @@
 // System.Console.Write("Напишите несколько слов через пробел: ");
 // string str = Console.ReadLine();
 // PrintArray(MyToStringArray(str));
+
+// Третье решение
+string[] MyToStringArray(string str)
+{
+    string[] words = str.Split(' ');
+    string[] result = new string[words.Length];
+    int j = 0;
+    for (int i = 0; i < words.Length; i++)
+    {
+        if (words[i].Length <= 3)
+        {
+            result[j] = words[i];
+            j++;
+        }
+    }
+    Array.Resize(ref result, j);
+    return result;
+}
+
+void PrintArray(string[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        System.Console.Write(array[i] + " ");
+    }
+    System.Console.WriteLine();
+}
+
+System.Console.Write("Напишите несколько слов через пробел: ");
+string str = Console.ReadLine();
+PrintArray(MyToStringArray(str));
